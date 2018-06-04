@@ -54,8 +54,11 @@
 	</div>
 </template>
 <script>
+
 require('./index.less')
-import {shop,shopBanner,shopCat,floor1,recommendGoods} from '../../data/data.js'
+
+// banner和shop是单独从home.js的store中获取的值，这里之所以分开获取数据，是为了测试两种获取数据的方式
+import {shopCat,floor1,recommendGoods} from '../../data/data.js'
 
 import SharePopup from '../../components/sharePopup.vue'
 import CatBox from '../../components/catBox.vue'
@@ -66,7 +69,7 @@ import ScrollerBox from '../../components/ScrollerBox.vue'
 import GoodGrid from '../../components/GoodGrid.vue'
 import {Swiper, SwiperItem, Popup, ViewBox} from 'vux'
 
-// const {mapGetters} = require('../../../node_modules/vuex/dist/vuex.min.js')
+import { mapGetters } from 'vuex';
 
 export default {
 	components: {
@@ -84,8 +87,6 @@ export default {
 	},
 	data() {
 		return {
-			// shop: shop,
-			// shopBanner: shopBanner,
 			shopCat: shopCat,
 			floor1: floor1,
 			recommendGoods: recommendGoods
@@ -96,15 +97,17 @@ export default {
 		this.initShopBanner()
 	},
 	computed: {
-		// ...mapGetters({
-		// 	shop
-		// })
+	  // todo:为什么下面使用mapGetters会报错
+		/*...mapGetters ({
+			shop: state => state.home.shop,
+      shopBanner: state => state.home.shopBanner
+		})*/
 		shop(){
-			return this.$store.getters.shop
-		},
-    shopBanner(){
-			return this.$store.getters.shopBanner
-		}
+		  return this.$store.state.home.shop
+    },
+		shopBanner(){
+		  return this.$store.state.home.shopBanner
+    }
 	},
 	methods: {
 		initShop() {

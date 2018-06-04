@@ -28,19 +28,23 @@ const getters = {
 	recommendGoods: state => state.recommendGoods,
 }
 
-// mutations
+// 同步执行mutations
 const mutations = {
 	[types.UPDATE_SHOP] (state, payload) {
 	  state.shop.title = payload.shop.title
 	  state.shop.logo = payload.shop.logo
-	}
+	},
+  [types.UPDATE_SHOPBANNER] (state, payload) {
+	  state.shopBanner = payload.shopBanner;
+	},
 }
 
-// actions
+// 异步执行actions
 const actions = {
 	async initShop({commit, state}) {
 	  // 异步修改shop对象
 		let shop = await api.getShop()
+    // commit执行的是mutaions中对应的修改公共state的方法（根据type值寻找，并传入载荷对象参数进行修改）
 		commit({
 			type: types.UPDATE_SHOP,
 			shop
@@ -49,7 +53,8 @@ const actions = {
   async initShopBanner({commit, state}) {
 	  // 异步修改shop对象
 		let shopBanner = await api.getShopBanner()
-		commit({
+    // commit执行的是mutaions中对应的修改公共state的方法（根据type值寻找，并传入载荷对象参数进行修改）
+    commit({
 			type: types.UPDATE_SHOPBANNER,
 			shopBanner
 		})
