@@ -1,11 +1,12 @@
 <template>
 	<span>
-		<span 
+    <!--class的传入会和现有的class叠加-->
+		<span
 			class="zui-icon"
 			:class="shareCls"
-			@click="showSharePop">
+			@click="toggleSharePop">
 		</span>
-
+    <!--使用vux的popup组件-->
 		<popup
 			v-model="showShare"
 			height="300px">
@@ -15,9 +16,9 @@
 				</div>
 				<div class="share-desc">{{share.title}}</div>
 				<div class="share-popup-close">
-					<span 
+					<span
 						class="zui-icon zui-icon-close"
-						@click="closeSharePop">
+						@click="toggleSharePop">
 					</span>
 				</div>
 			</div>
@@ -29,20 +30,21 @@
 import {Popup} from 'vux'
 
 export default {
+  // 定义两个接受参数的属性
 	props: ['share','shareCls'],
+  // 声明使用组件
 	components: {
 		Popup
 	},
+  // 返回响应数据
 	data() {
 		return {
 			showShare: false
 		}
 	},
+  // 定义方法
 	methods: {
-		showSharePop(){
-			this.showShare = !this.showShare
-		},
-		closeSharePop(){
+		toggleSharePop(){
 			this.showShare = !this.showShare
 		}
 	}
@@ -57,7 +59,7 @@ export default {
 }
 .share-popup-inner .share-qrcode{
 	height: 200px;
-}	
+}
 .share-popup-inner .share-qrcode img{
 	display: block;
 	height: 100%;

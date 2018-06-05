@@ -1,15 +1,23 @@
+// 导入Vue
 import Vue from 'vue'
-// import Vuex from 'vuex' 不需要在此导入vuex，因为导入的store已经是完成的vuex组件
+// 导入点击延时解决
 import FastClick from 'fastclick'
+// 导入路由组件
 import VueRouter from 'vue-router'
+// 导入入口App文件
 import App from './App'
+// 导入定义好的路由配置
 import routes from './routers.js'
+// 导入公共状态（数据）
 import store from './vuex/index.js'
+
+// 导入全局设置的mutaions（改变公共数据的方法名集合）
 import * as types from './vuex/mutation-types'
 
+// 全局使用路由组件
 Vue.use(VueRouter)
-// Vue.use(Vuex)  不需要在此使用vuex，因为导入的store已经是完整的vuex组件
 
+// 根据具体路由配置创建路由器
 const router = new VueRouter({
   routes
 })
@@ -54,16 +62,14 @@ router.afterEach(function (to) {
   // ga && ga('send', 'pageview')
 })
 
-
-
+// 移除移动端页面点击延迟
 FastClick.attach(document.body)
-
 
 // 实例化对象
 new Vue({
-  // 公共状态库
+  // 挂载公共状态库
   store,
-  // 路由
+  // 挂载路由
   router,
   // 挂载至id为app-box的结构上
   render: h => h(App)

@@ -69,7 +69,9 @@ import ScrollerBox from '../../components/ScrollerBox.vue'
 import GoodGrid from '../../components/GoodGrid.vue'
 import {Swiper, SwiperItem, Popup, ViewBox} from 'vux'
 
-import { mapGetters } from 'vuex';
+// import api from '../../api';
+
+// import { mapGetters } from 'vuex';
 
 export default {
 	components: {
@@ -103,7 +105,7 @@ export default {
       shopBanner: state => state.home.shopBanner
 		})*/
 		shop(){
-		  return this.$store.state.home.shop
+      return this.$store.state.home.shop
     },
 		shopBanner(){
 		  return this.$store.state.home.shopBanner
