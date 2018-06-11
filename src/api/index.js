@@ -1,19 +1,13 @@
-// 导入vue
 import Vue from 'vue'
-
-// 导入基于axios（基于Promise的ajax）
-import { AjaxPlugin } from 'vux'
-
-// 导入es6断言兼容组件(上述AjaxPlugin是基于axio，而axio在低版本浏览器需要es6-promise的补丁支持)
-require('es6-promise').polyfill()
-
-// 全局使用ajax组件
-Vue.use(AjaxPlugin)
 
 import {
   LoginResource,
-  RegResource
+  RegResource,
+  ShopResource,
+  BannerResource
 } from './resource';
+
+var that = this
 
 export default {
   /**
@@ -22,7 +16,6 @@ export default {
    * @returns status:success
    */
   getLoginResource (account, password) {
-    console.log('getLoginResource')
     this.$http.post(LoginResource).then(({data}) => {
       console.log(data)
     })
@@ -34,12 +27,26 @@ export default {
    * @returns status:success
    */
   getRegResource (account, password, cellphone) {
-    return axios.get(RegResource, {
-      params: {
-        account: account,
-        password: password,
-        cellphone: cellphone
-      }
-    });
+
+  },
+
+  /**
+   * @title: 获取shop数据
+   * @method post
+   * @param ''
+   * @returns status:success
+   */
+  getShopResource () {
+   return Vue.prototype.$http.post(ShopResource);
+  },
+
+  /**
+   * @title: 获取banner栏数据
+   * @method post
+   * @param ''
+   * @returns status:success
+   */
+  getBannerResource () {
+   return Vue.prototype.$http.post(BannerResource);
   }
 };

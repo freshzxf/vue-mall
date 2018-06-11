@@ -36,12 +36,17 @@ export default {
 	components: {
 		Popup
 	},
+  created() {
+  },
   // 返回响应数据
 	data() {
 		return {
 			showShare: false
 		}
 	},
+  computed: {
+
+  },
   // 定义方法
 	methods: {
 		toggleSharePop(){

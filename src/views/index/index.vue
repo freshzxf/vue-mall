@@ -17,7 +17,8 @@
 
 				<share-popup
 					:shareCls="'zui-icon-SHARE2'"
-					:share="shop.shareInfo">
+					:share="shop.shareInfo"
+          v-if="shop.show?shop.show:false">
 				</share-popup>
 			</div>
 		</div>
@@ -54,7 +55,6 @@
 	</div>
 </template>
 <script>
-
 require('./index.less')
 
 // banner和shop是单独从home.js的store中获取的值，这里之所以分开获取数据，是为了测试两种获取数据的方式
@@ -67,12 +67,9 @@ import EndingTip from '../../components/EndingTip.vue'
 import Recommend from '../../components/Recommend.vue'
 import ScrollerBox from '../../components/ScrollerBox.vue'
 import GoodGrid from '../../components/GoodGrid.vue'
-import {Swiper, SwiperItem, Popup, ViewBox} from 'vux'
-
-// import api from '../../api';
+import {Swiper, SwiperItem, Popup, ViewBox, XImg} from 'vux'
 
 // import { mapGetters } from 'vuex';
-
 export default {
 	components: {
 		Popup,
@@ -86,6 +83,7 @@ export default {
 		ScrollerBox,
 		SharePopup,
 		ViewBox,
+    XImg
 	},
 	data() {
 		return {
@@ -97,7 +95,7 @@ export default {
 	created(){
 		this.initShop(),
 		this.initShopBanner()
-	},
+  },
 	computed: {
 	  // todo:为什么下面使用mapGetters会报错
 		/*...mapGetters ({
@@ -113,7 +111,7 @@ export default {
 	},
 	methods: {
 		initShop() {
-			this.$store.dispatch('initShop')
+      this.$store.dispatch('initShop')
 		},
 		initShopBanner() {
 			this.$store.dispatch('initShopBanner')

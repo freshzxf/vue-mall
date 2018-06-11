@@ -9,25 +9,6 @@ export const shop = {
 	}
 }
 
-// shop banner
-export const shopBanner = [
-	{
-		url: 'javascript:',
-    img: '/static/home/banner2.jpg',
-		title: '喜迎端午，节日折上折'
-	},
-	{
-		url: 'javascript:',
-    img: '/static/home/banner3.jpg',
-		title: '芯科技，芯未来'
-	},
-  {
-    url: 'javascript:',
-    img: '/static/home/banner1.jpg',
-    title: '端午狂欢节'
-  }
-]
-
 // cat
 export const shopCat = [
 	{
@@ -96,32 +77,28 @@ export const shopCat = [
 export const floor1 = [
 	{
 		id: 'a',
-		img: '/static/img/article-default.png',
+		img: 'https://o5omsejde.qnssl.com/demo/test1.jpg',
 		title: '发现生活中的美',
 	},
 	{
 		id: 'b',
-		img: '/static/img/article-default.png',
+		img: 'https://o5omsejde.qnssl.com/demo/test2.jpg',
 		title: '发现生活中的美',
 	},
 	{
-		img: '/static/img/article-default.png',
+		img: 'https://o5omsejde.qnssl.com/demo/test4.jpg',
 		title: '发现生活中的美',
 	},
 	{
-		img: '/static/img/article-default.png',
+		img: 'https://o5omsejde.qnssl.com/demo/test5.jpg',
 		title: '发现生活中的美',
 	},
 	{
-		img: '/static/img/article-default.png',
+		img: 'https://o5omsejde.qnssl.com/demo/test6.jpg',
 		title: '发现生活中的美',
 	},
 	{
-		img: '/static/img/article-default.png',
-		title: '发现生活中的美',
-	},
-	{
-		img: '/static/img/article-default.png',
+		img: 'https://o5omsejde.qnssl.com/demo/test7.jpg',
 		title: '发现生活中的美',
 	}
 ]

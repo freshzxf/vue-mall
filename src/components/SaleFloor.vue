@@ -7,7 +7,7 @@
 				v-if="hasAll">
 			</span>
 		</div>
-		<scroller lock-y :scrollbar-x='false'>
+		<scroller lock-y :scrollbar-x='false' id="horizonScroll">
 			<scroller-box
 				:scrollerItemStyle="{
 					width: 200,
@@ -22,7 +22,7 @@
 							name: 'goodDetail',
 							params: {id: props.data.id}
 						}">
-						<img :src="props.data.img" alt="">
+            <img :src="props.data.img" alt="">
 						<div
 							class="title z-ellipsisi"
 							v-if="props.data.title">
@@ -43,7 +43,9 @@ export default {
 	components: {
 		ScrollerBox,
 		Scroller
-	}
+	},
+  methods:{
+  }
 }
 </script>
 
@@ -74,6 +76,8 @@ export default {
 }
 .sales-floor-item img{
 	display: block;
+  width: 100%;
+  height: 160px;
 }
 .sales-floor-item .title{
 	text-align: center;
